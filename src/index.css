@@ -1,0 +1,5 @@
+/* I used TailwindCSS for little bit UI design and it is very fast for styling. You can create beatiful UI without much efford.*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
