@@ -16,7 +16,7 @@ const router = require("./backend/route");
 const { sendRequestsToSmtpServer } = require("./backend/service/mail");
 
 // Server configuration
-app.use(express.static(path.join(__dirname, "dist"))); // this is frontend's build folder
+app.use(express.static(path.join(__dirname, "dist"))); // this is frontend's build folder and serves as static file
 app.use(bodyParser());
 app.use(morgan());
 app.use(
