@@ -1,5 +1,6 @@
 // Init server
 const express = require("express");
+const cors = require("cors");
 const path = require("path");
 
 // For scheduled tasks
@@ -18,6 +19,11 @@ const { sendRequestsToSmtpServer } = require("./backend/service/mail");
 app.use(express.static(path.join(__dirname, "dist")));
 app.use(bodyParser());
 app.use(morgan());
+app.use(
+  cors({
+    origin: process.env.ORIGIN,
+  })
+);
 
 // Inject routers
 app.use("/", router);
@@ -29,6 +35,6 @@ cron.schedule("*/60 * * * * *", () => {
 });
 
 // listen for requests :)
-const listener = app.listen(process.env.BACKEND_PORT || 4000, function () {
+const listener = app.listen(process.env.PORT || 4000, function () {
   console.log("Your app is listening on port " + listener.address().port);
 });
