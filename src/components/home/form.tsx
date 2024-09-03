@@ -7,7 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 // // React router dom
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // Just for alert, too lazy to write it on my own.
 import { Toaster, toast } from "alert";
@@ -24,7 +24,7 @@ const schema = yup
 type FormData = yup.InferType<typeof schema>;
 
 const FormForSanta: FC = () => {
-  // const navigate = useNavigate()
+  const navigate = useNavigate();
 
   // Schema-based validation
   // I thought it does not necessary to create any state.
@@ -41,13 +41,7 @@ const FormForSanta: FC = () => {
     axiosInstance
       .post<string>("send-request", data)
       .then(() => {
-        window.location.href =
-          import.meta.env.VITE_BACKEND_BASE_URL + "successfully-stored";
-
-        // In the README.md file said "the server should show a page indicating that the request has been received."
-        // and it does not say webapp
-        // so I decided to redirect to backend's static html page and commented 👇 that line.
-        // navigate("/request-sent");
+        navigate("/request-sent");
       })
       .catch((e: AxiosError<string>) => {
         if (e.response) {

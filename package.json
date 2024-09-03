@@ -2,13 +2,11 @@
   "name": "santa-app",
   "version": "0.0.1",
   "description": "A simple Node app built on Express, instantly up and running.",
-  "main": "backend/server.js",
+  "main": "server.js",
   "scripts": {
-    "build:front": "vite build",
-    "preview:front": "vite preview",
+    "build": "vite build",
     "start:vite": "vite --port 3000",
-    "start": "cross-env NODE_ENV=production node backend/server.js",
-    "start:nodemon": "cross-env NODE_ENV=development nodemon backend/server.js"
+    "start": "node -r dotenv/config server.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -17,7 +15,6 @@
     "alert": "^6.0.2",
     "axios": "^1.7.7",
     "body-parser": "^1.20.2",
-    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-validator": "^7.2.0",
