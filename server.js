@@ -16,12 +16,12 @@ const router = require("./backend/route");
 const { sendRequestsToSmtpServer } = require("./backend/service/mail");
 
 // Server configuration
-app.use(express.static(path.join(__dirname, "dist")));
+app.use(express.static(path.join(__dirname, "dist"))); // this is frontend's build folder
 app.use(bodyParser());
 app.use(morgan());
 app.use(
   cors({
-    origin: process.env.ORIGIN,
+    origin: process.env.ORIGIN, // for enabling cors
   })
 );
 
