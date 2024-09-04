@@ -1,3 +1,8 @@
+# INFORMATION
+
+I created a backend folder and tried to implement the MVC architecture in it. I think it will be cleaner.
+Additionally, files from the Vite build are served as static pages in ExpressJS.
+
 # IMPORTANT! READ before starting
 
 By default for anonymous users (non logged in), your code and app will only remain on glitch.com for 5 days.
